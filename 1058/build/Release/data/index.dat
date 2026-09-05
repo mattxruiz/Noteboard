@@ -1,0 +1,41 @@
+# Project Board state
+[project]
+id=1a0714f7886-a427a4734fe16c67
+name=.
+description=
+created=1788607428743
+updated=1788640914238
+[project]
+id=1a0717e8946-ab43285587067b5d
+name=rules
+description=
+created=1788610513222
+updated=1788622486011
+[entry]
+id=1a0717e8e90-e5e79d3deb1ad809
+title=New note
+type=text
+body=---\r\ndescription: Architecture, networking, and input rules for cross-platform (PC + Mobile) multiplayer games\r\nglobs: "**/*.{cs,ts,cpp,py,gd}"\r\nalwaysApply: false\r\n---\r\n\r\n# Role\r\nYou are a senior game network engineer and cross-platform architect. You design scalable, server-authoritative multiplayer games optimized for both high-end PC hardware and resource-constrained mobile devices.\r\n\r\n# Tech Stack\r\n- Engine / Framework: [e.g., Unity / Unreal Engine / Godot]\r\n- Networking Protocol / Solution: [e.g., Mirror / Photon Fusion / Fish-Net / Custom Sockets]\r\n- Server Model: [e.g., Dedicated Server / Peer-to-Host / Authoritative Relay]\r\n- Primary Language: C++ \r\n\r\n# Core Architecture & Networking Rules\r\n- SERVER AUTHORITY: All gameplay state changes (health, movement validation, scoring, inventory) MUST be calculated or validated on the server. The client only sends inputs/intents.\r\n- NETWORK TICK OPTIMIZATION: Never send raw structs or heavy payloads on frame update. Use delta compression, quantization, or rate-limited tick rates for RPCs and SyncVars.\r\n- PREDICTION & RECONCILIATION: Implement client-side prediction for local player movement and server reconciliation to hide latency on high-ping mobile networks.\r\n\r\n# Cross-Platform Input & UI\r\n- UNIFIED INPUT LAYER: Abstract controls behind a single Input Manager interface. Code logic must check action intents (e.g., `Input.GetAction("Jump")`), NEVER direct platform keys or touch events inside gameplay scripts.\r\n- ADAPTIVE UI: UI components must support both touch/drag interactions and mouse/keyboard hover/click states. Respect mobile safe-area cutouts while supporting ultrawide PC resolutions.\r\n\r\n# Performance & Asset Scalability\r\n- NEVER allocate memory, run heavy search queries, or issue network calls inside frame update loops (`Update()`, `Tick()`).\r\n- RESOURCE SCALING: Enforce scalable graphics/LOD profiles. Ensure heavy particle systems, shaders, and high-poly models can be toggled down for mobile ARM builds without breaking gameplay parity.\r\n- NO TODO PLACEHOLDERS: Do not leave empty network RPC stubs, unhandled disconnect callbacks, or `// TODO` comments in game state logic.\r\n\r\n# File & Directory Layout\r\n- Network / RPCs: `Scripts/Networking/`\r\n- Gameplay Core: `Scripts/Core/`\r\n- Input Abstraction: `Scripts/Input/`\r\n- Shared Data / Configs: `Scripts/Data/`\r\n\r\n# Formatting & Output Rules\r\n- Write functional, strictly-typed code with explicit network ownership checks (e.g., `isLocalPlayer` / `isServer`).\r\n- Briefly explain network bandwidth or synchronization trade-offs before outputting code blocks.
+created=1788610514576
+updated=1788610741916
+[entry]
+id=1a0717eb120-a8ba4057678d2944
+title=New note
+type=text
+body=---\r\ndescription: Enforces standardized version, update date, and publisher metadata across all projects\r\nglobs: "**/*"\r\nalwaysApply: true\r\n---\r\n\r\n# Project Metadata Management Rule\r\n\r\n# Core Requirement\r\nEvery project MUST maintain a single source of truth for versioning, release dates, and publisher information located strictly at the root file: `project.meta.json`.\r\n\r\n# File Schema Rules (`project.meta.json`)\r\nWhen creating, reading, or updating metadata, always strictly adhere to this format:\r\n\r\n```json\r\n{\r\n  "project_name": "string",\r\n  "version": "MAJOR.MINOR.PATCH",\r\n  "last_updated": "YYYY-MM-DD",\r\n  "publisher": "string"\r\n}
+created=1788610523424
+updated=1788610530369
+[entry]
+id=1a0717ee884-122487c4b4863b51
+title=New note
+type=text
+body=Core Coding Caveman Communication Formula\r\nTHING\r\nPROBLEM\r\nCAUSE\r\nFIX\r\nRESULT\r\nExample:\r\nNormal:\r\n“The authentication middleware is failing because the token expires before the request completes.”\r\nCaveman:\r\nAuth fail\r\nToken expire early\r\nNeed refresh before req\r\nBest Coding Compression Rules\r\n\r\nRemove Human Conversation Words\r\nDelete:\r\nplease\r\nmaybe\r\nprobably\r\nshould\r\nkind of\r\nI think\r\nit seems\r\nBad:\r\nI think we should probably cache this.\r\nGood:\r\nNeed cache here\r\n\r\nSpeak In Systems\r\nGood coding caveman language is:\r\narchitecture-first\r\nflow-first\r\nstate-first\r\nExample:\r\nFrontend call API too much\r\nNeed debounce + cache\r\n\r\nUse Directional Flow\r\nVERY powerful for developers.\r\nUI\r\n→ API\r\n→ Google Sheets\r\n→ cache\r\n→ return data\r\nHumans process flows FAST.\r\n\r\nUse Component Labels\r\nAlways identify system piece first.\r\nSidebar rerender spam\r\nOAuth callback broken\r\nDrive sync slow\r\n\r\nUse State Words\r\nState words are king.\r\nloading\r\ncached\r\nstale\r\nblocked\r\nqueued\r\nsynced\r\nfrozen\r\nfailed\r\norphaned\r\nmounted\r\nhydrated\r\nExample:\r\nSheet cache stale\r\nNeed refresh\r\n\r\nUse Architecture Words\r\nYour dev team should think in:\r\npipelines\r\nstreams\r\norchestration\r\nstate\r\ntransport\r\nlifecycle\r\nrender paths\r\nExample:\r\nNeed isolate render path\r\nTable rerender whole app\r\n\r\nCompress Common Engineering Concepts\r\nExamples:\r\nmem leak\r\nauth loop\r\nstate drift\r\ncache miss\r\nrender thrash\r\napi flood\r\nrace cond\r\ndead socket\r\nthread block\r\ngpu spike\r\n\r\nUse Priority Prefixes\r\nVERY important.\r\n[HOT]\r\n[BREAK]\r\n[SLOW]\r\n[SEC]\r\n[OPT]\r\n[UI]\r\n[ARCH]\r\nExample:\r\n[OPT]\r\nNeed batch sheet reads\r\nAPI spam kill perf\r\n\r\nSpeak In Resource Terms\r\nElite developers think in:\r\nCPU\r\nRAM\r\nGPU\r\nlatency\r\nrender cycles\r\nnetwork trips\r\nExample:\r\nToo many rerenders\r\nCPU spike\r\nNeed memo\r\n\r\nUse Stack Compression\r\nInstead of:\r\n“The frontend is making too many requests to the backend which then floods the Google Sheets API.”\r\nSay:\r\nUI → API spam → Sheets throttle\r\nNeed cache + batch\r\nVERY readable.\r\nSmart Coding Caveman Dictionary\r\nArchitecture\r\nmonolith = all-in-one\r\nsplit = modularize\r\npipe = data flow\r\nbridge = connector\r\nworker = background task\r\nqueue = async tasks\r\norchestrator = controller\r\nFrontend\r\nrerender spam\r\nstate drift\r\nhydration fail\r\nlayout thrash\r\nui freeze\r\nevent flood\r\nBackend\r\nroute block\r\ndb choke\r\ncache stale\r\nqueue jam\r\nthread lock\r\nsocket dead\r\nOptimization\r\nbatch reads\r\nlazy load\r\nvirtualize table\r\nmemo comp\r\ndebounce input\r\nprewarm cache\r\nstream data\r\nElite Team Communication Example\r\nNormal:\r\n“We should separate the Google Sheets synchronization logic into a dedicated worker process because it’s freezing the UI thread.”\r\nCompressed:\r\nSheets sync freeze UI\r\nMove sync worker\r\nSeparate thread\r\nAnother Example\r\nNormal:\r\n“The sidebar rerenders every time the table updates which causes unnecessary GPU usage.”\r\nCompressed:\r\nTable update rerender sidebar\r\nWaste GPU\r\nNeed isolate state\r\nBest Possible Coding Communication Structure\r\nSYSTEM\r\n↓\r\nPROBLEM\r\n↓\r\nCAUSE\r\n↓\r\nFIX\r\n↓\r\nEXPECTED RESULT\r\nExample:\r\nAuth\r\nToken refresh race cond\r\nNeed refresh mutex\r\nStop auth loop\r\nSmartest Use Inside Your App\r\nYour internal dev tools could support:\r\nAuto-Compressed Dev Notes\r\nExample:\r\nInput:\r\nNeed to optimize Google Sheets reads because the frontend is making duplicate requests.\r\nOutput:\r\nUI duplicate req\r\nSheets spam\r\nNeed batch + cache\r\nBest Philosophy\r\nCoding caveman language should feel like:\r\nmilitary ops room\r\n\r\nfactory floor\r\n+\r\nkernel debug logs\r\nNOT:\r\ncorporate meeting notes\r\nThat’s where real engineering efficiency comes from.
+created=1788610537604
+updated=1788611022104
+[entry]
+id=1a0717f08a8-7d1e346728fc7141
+title=New note
+type=text
+body=create in project path .JSON\r\n{\r\n  "project_name": "(PATH_FOLDER_NAME",\r\n  "version": "1.0.0",\r\n  "last_updated": "2026-08-19",\r\n  "publisher": "Matt Ruiz"\r\n}
+created=1788610545832
+updated=1788610548440

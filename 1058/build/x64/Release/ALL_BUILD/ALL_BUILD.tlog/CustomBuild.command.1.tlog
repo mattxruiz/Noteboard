@@ -1,0 +1,10 @@
+^C:\USERS\MATTX\DOCUMENTS\APPLICATIONS\1058\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/mattx/Documents/Applications/1058 -BC:/Users/mattx/Documents/Applications/1058/build --check-stamp-file C:/Users/mattx/Documents/Applications/1058/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
